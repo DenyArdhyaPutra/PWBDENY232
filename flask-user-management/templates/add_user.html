@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold">Add New User</h2>
+        <a href="{{ url_for('dashboard') }}" 
+           class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
+            Back
+        </a>
+    </div>
+
+    <form method="POST" action="{{ url_for('add_user') }}">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Username *
+            </label>
+            <input type="text" name="username" id="username" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   placeholder="Enter username">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Email *
+            </label>
+            <input type="email" name="email" id="email" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   placeholder="Enter email">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                Password *
+            </label>
+            <input type="password" name="password" id="password" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   placeholder="Enter password">
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
+                Role *
+            </label>
+            <select name="role" id="role" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Add User
+            </button>
+            <button type="reset"
+                    class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Clear Form
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
